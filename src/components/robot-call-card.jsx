@@ -428,19 +428,23 @@ const Robot_call_card = ({ gender, name, image }) => {
   };
 
   return (
-    <div className="max-w-md bg-gradient-to-br from-violet-950 to-slate-900 rounded-3xl overflow-hidden shadow-2xl w-1/2">
+    <div className="max-w-md bg-gradient-to-br from-violet-950 to-slate-900 rounded-3xl overflow-hidden shadow-2xl w-full md:w-1/2 lg:w-1/3">
       {/* Header */}
-      <div className="p-6 pb-0">
+
+      <div className="p-4 sm:p-6 pb-0">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Bot className="text-violet-400 h-5 w-5" />
+
             <div>
               <h2 className="text-violet-100 text-lg font-medium">
                 {gender} AI Assistant
               </h2>
+
               <h3 className="text-violet-100 text-sm">{name}</h3>
             </div>
           </div>
+
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <CircleDot
@@ -448,6 +452,7 @@ const Robot_call_card = ({ gender, name, image }) => {
                   isConnected ? 'text-green-400' : 'text-rose-400'
                 }`}
               />
+
               <span
                 className={
                   isConnected
@@ -458,6 +463,7 @@ const Robot_call_card = ({ gender, name, image }) => {
                 {connectionStatus}
               </span>
             </div>
+
             <Settings className="h-5 w-5 text-violet-400/70 hover:text-violet-400 transition-colors cursor-pointer" />
           </div>
         </div>
@@ -465,19 +471,23 @@ const Robot_call_card = ({ gender, name, image }) => {
         <div className="flex items-center gap-3 text-sm text-violet-400/70 mb-6">
           <div className="flex items-center gap-1">
             <Shield className="h-4 w-4" />
+
             <span className="text-white">Enterprise Security</span>
           </div>
+
           <div className="flex items-center gap-1">
             <span className="text-white">•</span>
+
             <span className="text-white">{currentDate}</span>
           </div>
         </div>
       </div>
 
       {/* Avatar Section */}
+
       <div className="flex justify-center mb-8">
         <div className="relative">
-          <div className="w-28 h-28 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 p-1">
+          <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 p-1">
             <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 p-1">
               <img
                 src={image}
@@ -486,6 +496,7 @@ const Robot_call_card = ({ gender, name, image }) => {
               />
             </div>
           </div>
+
           <div className="absolute bottom-0 right-0 bg-violet-500 rounded-full p-1.5 border-4 border-slate-900">
             <Bot className="w-4 h-4 text-white" />
           </div>
@@ -493,34 +504,42 @@ const Robot_call_card = ({ gender, name, image }) => {
       </div>
 
       {/* Call Controls */}
-      <div className="px-6 mb-6">
+
+      <div className="px-4 sm:px-6 mb-6">
         <div className="flex items-center gap-2 mb-2">
           <div
             className={`w-3 h-3 rounded-full ${
               isInCall ? 'bg-red-500 animate-pulse' : 'bg-slate-600'
             }`}
           ></div>
+
           <span className="text-slate-300 text-sm">{callStatus}</span>
         </div>
 
         {!isInCall ? (
           <button
             onClick={startCall}
-            className="w-full bg-gradient-to-r from-violet-600 to-violet-500 hover:from-violet-500 hover:to-violet-400 
+            className="w-full bg-gradient-to-r from-violet-600 to-violet-500 hover:from-violet-500 hover:to-violet-400
+
                       text-white rounded-xl py-3 flex items-center justify-center gap-2 transition-all duration-300
+
                       shadow-lg shadow-violet-900/50 hover:shadow-violet-900/75"
           >
             <Phone className="h-5 w-5" />
+
             <span>Start Call</span>
           </button>
         ) : (
           <button
             onClick={endCall}
-            className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 
+            className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400
+
                       text-white rounded-xl py-3 flex items-center justify-center gap-2 transition-all duration-300
+
                       shadow-lg shadow-red-900/50 hover:shadow-red-900/75"
           >
             <Phone className="h-5 w-5" />
+
             <span>End Call</span>
           </button>
         )}
